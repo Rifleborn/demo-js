@@ -7,23 +7,27 @@
 
     <link rel="stylesheet" href="src/styles/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 
 </head>
 <body>
     <header>
-        <div class="vertical">
-            <h1 id="headerText">JavaScript Demo</h1>
+        <div class="header-block">
+            <h1 id="header-text">JavaScript Demo</h1>
             <div id="button-container" class="horizontal">
-                <button onclick="showSectionHideOthers('dice-roller')">Dice Roller</button>
-                <button onclick="showSectionHideOthers('trello-board')">Trello Board</button>
-                <button onclick="showSectionHideOthers('calculator')">Calculator</button>
-                <button onclick="showSectionHideOthers('weather-app')">Weather app</button>
+                <button class="header-button" onclick="showSectionHideOthers('dice-roller')">Dice Roller</button>
+                <button onclick="showSectionHideOthers('trello-app')">Trello Board</button>
+                <!-- <button onclick="showSectionHideOthers('trello-app')">Trello Board</button> -->
+                <button onclick="showSectionHideOthers('trello-app')">Objects Sorting</button>
+                <!-- <button onclick="showSectionHideOthers('currency-converter')">Currency Converter</button> -->
+                <button onclick="showSectionHideOthers('weather-app')">Weather App</button>
+
             </div>
         </div>
     </header>
     
     <!-- weather dashboard -->
-    <div id="weather-app" class="section">
+    <div id="weather-app" class="section" style="display: none;">
         <div id="weather-app-header">
             <div id="search-container">
                 <i id="search-container-icon" class="bi bi-search"></i>
@@ -48,34 +52,37 @@
     </div>
 
     <!-- trello boards -->
-    <div id="trello-board" class="section" style="display: none;">
-        <div id="column">
-            <h2>To Do</h2>
-            <div class="cards"></div>
-            <button class="add-card">+ Add card</button>
-          </div>
+    <div id="trello-app" class="section">
+        <div id="board-space">
+            <div class="board">
+                
+                <!-- list -->
+                <div class="task-list">
+                    <span>Enter board name</span>
+                    <!-- <div class="task">Task 1</div> -->
+                    <!-- <div class="task">Task 2</div> -->
+                </div>
+
+                <!-- buttons -->
+                <div class="board-form">
+                    <textarea class="board-textarea" placeholder="Введіть назву для цієї картки"></textarea>
+                    <br/>
+                    <button class="add-task-btn">+ Add Task</button>
+                    <br/>
+                    <button class="cancel-task-btn" display="none">Cancel</button>
+                </div>
+                
+            </div>    
+        </div>
+        <div id="trello-buttons">
+            <button class="add-board-btn">Add board</button>
+        </div>
     </div>
 
-    <div id="calculator" class="section" style="display: none;">
-        <input id="display" readonly>
-        <div id="keys">
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
-            <button>+</button>
+    <div id="currency-converter" class="section" style="display: none;">
+        <!-- <input id="display" readonly> -->
+        <div>
+            <input type="number" id="currency" value="1" />
         </div>
     </div>
 
@@ -84,7 +91,7 @@
     <div id="dice-roller" class="section" style="display: none" >
         <h2>Dice Roller</h4>
         <label>Number of dices to roll:</label>
-        <input id="numOfDice" type="number" value="3" min="1">
+        <input id="num-of-dice" type="number" value="3" min="1">
         <button onclick="rollDice()">Roll Dice</button>
         <div id="diceResult"></div>
         <div id="diceImages"></div>
